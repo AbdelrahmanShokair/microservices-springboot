@@ -1,4 +1,4 @@
-## Spring Boot Microservices 
+## Spring Boot Microservices
 
 **How to Run the Applications (These instructions may be outdated)**
 
