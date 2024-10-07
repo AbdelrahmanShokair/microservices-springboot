@@ -65,6 +65,7 @@ You can run the entire stack using Docker Compose. Make sure you are in the root
 
 ```bash
 docker-compose up --build
+```
 This command builds the images and starts the containers.
 
 ## Accessing Services 🌐
@@ -106,5 +107,5 @@ Ensure the databases are initialized with the necessary schemas and data. You ca
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/microservices-project.git
-cd microservices-project
+git clone https://github.com/AbdelrahmanShokair/microservices-springboot.git
+```
