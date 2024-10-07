@@ -1,44 +1,40 @@
-## Spring Boot Microservices
+# Spring Boot Microservices Project 🚀
 
-**How to Run the Applications (These instructions may be outdated)**
+## Overview
 
-**Using Docker (Recommended)**
+This project is a collection of Spring Boot microservices designed to demonstrate how to integrate various technologies such as Grafana, Prometheus, Kafka, Keycloak, MySQL, and PostgreSQL. All components are containerized using Docker for easy setup and deployment.
 
-  **[Container Icon]** 1. **Build the applications and create Docker images:**
-     ```bash
-     mvn clean package -DskipTests
-     ```
+## Table of Contents 📚
 
-  **[Play Icon]** 2. **Start the applications using Docker Compose:**
-     ```bash
-     docker-compose up -d
-     ```
+- [Technologies Used](#technologies-used) 🛠️
+- [Getting Started](#getting-started) ⚡
+- [Architecture](#architecture) 🏗️
+- [Services](#services) 📦
+- [Running the Project](#running-the-project) 🚀
+- [Monitoring](#monitoring) 📊
+- [Authentication](#authentication) 🔒
+- [Database Setup](#database-setup) 🗄️
+- [License](#license) 📜
 
-**Without Docker (Not recommended for production)**
+## Technologies Used 🛠️
 
-  **[Warning Icon]** 1. **Navigate to each microservice folder within the project directory.**
+- **Spring Boot 3**: Framework for building microservices.
+- **Prometheus**: Monitoring and alerting toolkit.
+- **Grafana**: Data visualization and monitoring tool.
+- **Apache Kafka**: Distributed event streaming platform.
+- **Keycloak**: Open-source identity and access management.
+- **MySQL**: Relational database management system.
+- **PostgreSQL**: Advanced relational database management system.
+- **Docker**: Container platform for running applications.
 
-  **[Hammer Icon]** 2. **Build the application:**
-     ```bash
-     mvn clean verify -DskipTests
-     ```
+## Getting Started ⚡
 
-  **[Play Icon]** 3. **Start the application:**
-     ```bash
-     mvn spring-boot:run
-     ```
+### Prerequisites
 
-**Note:** These instructions may be outdated, and it's highly recommended to use the new repository and tutorial for the latest version and best practices.
+- Docker and Docker Compose installed on your machine.
 
-**Icons Used (Optional)**
+### Clone the Repository
 
-* **Container Icon**:  (Replace with the actual icon path or URL)
-* **Play Icon**: (Replace with the actual icon path or URL)
-* **Warning Icon**: (Replace with the actual icon path or URL)
-* **Hammer Icon**: (Replace with the actual icon path or URL)
-
-**Alternative Approach:**
-
-If you have a project website or documentation hosted elsewhere, you can link to an image or icon sprite from that location. This allows more flexibility in managing the visuals. 
-
-**Remember to replace the placeholder icon descriptions with the actual paths or URLs to your desired icons.**
+```bash
+git clone https://github.com/yourusername/microservices-project.git
+cd microservices-project
