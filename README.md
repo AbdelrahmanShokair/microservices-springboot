@@ -58,7 +58,7 @@ This project consists of multiple microservices that interact with each other th
 
 3. **Run the project using Docker Compose**:
     ```bash
-    docker-compose up --build
+    docker compose up -d
     ```
 
     This will start all the microservices, databases (MySQL, PostgreSQL, MongoDB), Eureka, Prometheus, Grafana, Kafka, Zipkin, Keycloak, and the API Gateway.
@@ -89,13 +89,13 @@ This project consists of multiple microservices that interact with each other th
 - Keycloak connects to MySQL.
 
 ### ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql)
-- Microservice 2 connects to PostgreSQL.
-- Connection URL: `jdbc:postgresql://postgres:5432/db_microservice2`
+- Order Service, Inventory Service connects to PostgreSQL.
+- Connection URL: `jdbc:postgresql://postgres:5432/Order Service`
 - Configure username and password similarly.
 
 ### ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb)
-- Microservice 3 connects to MongoDB.
-- Connection URL: `mongodb://mongo:27017/db_microservice3`
+- Product Service connects to MongoDB.
+- Connection URL: `mongodb://mongo:27017/product-service`
 - MongoDB is used for storing NoSQL data and documents.
 - Configure username and password in the `application.properties` file or centralized configuration.
 
@@ -116,7 +116,7 @@ In each microservice's `application.properties`, configure the Keycloak server:
 keycloak.auth-server-url=http://localhost:8080/auth
 spring.security.oauth2.resourceserver.jwt.issuer-uri=http://keycloak:8080/realms/spring-boot-microservices-realm
 keycloak.realm=spring-boot-microservices-realm
-keycloak.resource=your-client-id
+keycloak.resource=spring-cloud-client
 keycloak.credentials.secret=your-client-secret
 ```
 ## ![Monitoring](https://img.shields.io/badge/Monitoring-and%20Tracing-lightblue?logo=monitoring) Monitoring and Tracing
