@@ -12,6 +12,7 @@ This project demonstrates a microservices architecture using Spring Boot 3, inco
 - ![Keycloak](https://img.shields.io/badge/Keycloak-Identity%20%26%20Access-blue?logo=keycloak) **Keycloak**: Identity and access management for securing the microservices.
 - ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql) **MySQL**: Database used by Microservice 1.
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql) **PostgreSQL**: Database used by Microservice 2.
+- ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb) **MongoDB**: Database used by Microservice 3.
 - ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker) **Docker**: Containerization platform for running all the services.
 
 ---
@@ -91,16 +92,22 @@ This project consists of multiple microservices that interact with each other th
 
 ## ![Database](https://img.shields.io/badge/Database-Configuration-yellowgreen?logo=database) Database Configuration
 
-### MySQL
+### MySQL(https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
 - Microservice 1 connects to MySQL.
 - Connection URL: `jdbc:mysql://mysql:3306/db_microservice1`
 - Configure username and password in `application.properties` or use the centralized config server.
 
-### PostgreSQL
+### PostgreSQL(https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql)
 - Microservice 2 connects to PostgreSQL.
 - Connection URL: `jdbc:postgresql://postgres:5432/db_microservice2`
 - Configure username and password similarly.
 
+### ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb) MongoDB
+- Microservice 3 connects to MongoDB.
+- Connection URL: `mongodb://mongo:27017/db_microservice3`
+- MongoDB is used for storing NoSQL data and documents.
+- Configure username and password in the `application.properties` file or centralized configuration.
+  
 ---
 
 ## ![Security](https://img.shields.io/badge/Security-Keycloak-blue?logo=keycloak) Security (Keycloak)
