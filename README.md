@@ -12,9 +12,9 @@ This project demonstrates a microservices architecture using Spring Boot 3, inco
 - ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) **Eureka**: Service registry for discovering microservices.
 - ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) **Zipkin**: Distributed tracing system.
 - ![Keycloak](https://img.shields.io/badge/Keycloak-Identity%20%26%20Access-blue?logo=keycloak) **Keycloak**: Identity and access management for securing the microservices.
-- ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql) **MySQL**: Database used by Microservice 1.
-- ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql) **PostgreSQL**: Database used by Microservice 2.
-- ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb) **MongoDB**: Database used by Microservice 3.
+- ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql) **MySQL**: Database used by KeyCloak Security.
+- ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql) **PostgreSQL**: Database used by Order-Service, Inventory-Service.
+- ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb) **MongoDB**: Database used by Product-Service.
 - ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker) **Docker**: Containerization platform for running all the services.
 
 ---
@@ -70,11 +70,11 @@ This project consists of multiple microservices that interact with each other th
 | Service         | Port  | Description                             |
 |-----------------|-------|-----------------------------------------|
 | ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) Eureka Server   | 8761  | Service discovery server.               |
-| ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) Config Server   | 8888  | Centralized configuration.              |
+| ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) Config Server   | 8005  | Centralized configuration.              |
 | ![API Gateway](https://img.shields.io/badge/API%20Gateway-Routing-0088CC?logo=apigateway) API Gateway   | 8080  | Centralized routing and access control. |
-| ![Microservice](https://img.shields.io/badge/Microservice-1-blue) Microservice 1  | 8081  | Example microservice with MySQL.        |
-| ![Microservice](https://img.shields.io/badge/Microservice-2-blue) Microservice 2  | 8082  | Example microservice with PostgreSQL.   |
-| ![Microservice](https://img.shields.io/badge/Microservice-3-blue) Microservice 3  | 8083  | Example microservice with MongoDB.      |
+| ![Order Service](https://img.shields.io/badge/Order-Service-blue) Order Service  | 8010  | Order Service with PostgreSQL.        |
+| ![Inventory Service](https://img.shields.io/badge/Inventory-Service-blue) Inventory Service  | 8080  | Inventory Service with PostgreSQL.   |
+| ![Product Service](https://img.shields.io/badge/Product-Service-blue) Product Service  | 8083  | Product Service with MongoDB.      |
 | ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) Kafka           | 9092  | Messaging platform.                     |
 | ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) Zipkin          | 9411  | Distributed tracing tool.               |
 | ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) Prometheus      | 9090  | Metrics collection tool.                |
