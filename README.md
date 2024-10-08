@@ -120,23 +120,23 @@ keycloak.realm=your-realm
 keycloak.resource=your-client-id
 keycloak.credentials.secret=your-client-secret
 ```
-## Monitoring and Tracing
+## ![Monitoring](https://img.shields.io/badge/Monitoring-and%20Tracing-lightblue?logo=monitoring) Monitoring and Tracing
 
 ### Prometheus
-- Access Prometheus at `http://localhost:9090`.
+- Access Prometheus at [http://localhost:9090](http://localhost:9090).
 - Prometheus scrapes metrics from the microservices and provides a backend for time-series data.
 
 ### Grafana
-- Access Grafana at `http://localhost:3000`.
+- Access Grafana at [http://localhost:3000](http://localhost:3000).
 - Add Prometheus as a data source and import pre-built dashboards to visualize metrics.
 
 ### Zipkin
-- Access Zipkin at `http://localhost:9411`.
+- Access Zipkin at [http://localhost:9411](http://localhost:9411).
 - Trace requests between microservices to diagnose latency issues or trace errors.
 
 ---
 
-## Running with Docker
+## ![Docker](https://img.shields.io/badge/Docker-Running%20with%20Docker-lightcoral) Running with Docker
 
 This project uses Docker Compose to simplify running all services.
 
