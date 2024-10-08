@@ -70,11 +70,10 @@ This project consists of multiple microservices that interact with each other th
 | Service         | Port  | Description                             |
 |-----------------|-------|-----------------------------------------|
 | ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) Eureka Server   | 8761  | Service discovery server.               |
-| ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) Config Server   | 8005  | Centralized configuration.              |
-| ![API Gateway](https://img.shields.io/badge/API%20Gateway-Routing-0088CC?logo=apigateway) API Gateway   | 8080  | Centralized routing and access control. |
-| ![Order Service](https://img.shields.io/badge/Order-Service-blue) Order Service  | 8010  | Order Service with PostgreSQL.        |
+| ![API Gateway](https://img.shields.io/badge/API%20Gateway-Routing-0088CC?logo=apigateway) API Gateway   | 8005  | Centralized routing and access control. |
+| ![Order Service](https://img.shields.io/badge/Order-Service-blue) Order Service  | 8080  | Order Service with PostgreSQL.        |
 | ![Inventory Service](https://img.shields.io/badge/Inventory-Service-blue) Inventory Service  | 8080  | Inventory Service with PostgreSQL.   |
-| ![Product Service](https://img.shields.io/badge/Product-Service-blue) Product Service  | 8083  | Product Service with MongoDB.      |
+| ![Product Service](https://img.shields.io/badge/Product-Service-blue) Product Service  | 8080  | Product Service with MongoDB.      |
 | ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) Kafka           | 9092  | Messaging platform.                     |
 | ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) Zipkin          | 9411  | Distributed tracing tool.               |
 | ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) Prometheus      | 9090  | Metrics collection tool.                |
