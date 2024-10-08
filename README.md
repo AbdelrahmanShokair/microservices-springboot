@@ -1,111 +1,159 @@
-# Spring Boot Microservices Project 🚀
+# Spring Boot Microservices Project
 
-## Overview
+This project demonstrates a microservices architecture using Spring Boot 3, incorporating various tools and frameworks for monitoring, messaging, security, service discovery, tracing, and persistence. The setup includes Docker to containerize the entire system.
 
-This project is a collection of Spring Boot microservices designed to demonstrate how to integrate various technologies such as Grafana, Prometheus, Kafka, Keycloak, MySQL, and PostgreSQL. All components are containerized using Docker for easy setup and deployment.
+## Key Technologies
+- ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3-green?logo=springboot) **Spring Boot 3**: Java framework for building production-ready applications.
+- ![Grafana](https://img.shields.io/badge/Grafana-Monitoring-orange?logo=grafana) **Grafana**: Visualization and monitoring tool.
+- ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) **Prometheus**: Monitoring and alerting toolkit.
+- ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) **Kafka**: Distributed messaging platform.
+- ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) **Eureka**: Service registry for discovering microservices.
+- ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) **Zipkin**: Distributed tracing system.
+- ![Keycloak](https://img.shields.io/badge/Keycloak-Identity%20%26%20Access-blue?logo=keycloak) **Keycloak**: Identity and access management for securing the microservices.
+- ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql) **MySQL**: Database used by Microservice 1.
+- ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql) **PostgreSQL**: Database used by Microservice 2.
+- ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker) **Docker**: Containerization platform for running all the services.
 
-## Table of Contents 📚
+---
 
-- [Technologies Used](#technologies-used) 🛠️
-- [Getting Started](#getting-started) ⚡
-- [Architecture](#architecture) 🏗️
-- [Services](#services) 📦
-- [Running the Project](#running-the-project) 🚀
-- [Monitoring](#monitoring) 📊
-- [Authentication](#authentication) 🔒
-- [Database Setup](#database-setup) 🗄️
-- [License](#license) 📜
+## Table of Contents
 
-## Technologies Used 🛠️
+1. [Architecture](#architecture)
+2. [Setup Instructions](#setup-instructions)
+3. [Services Overview](#services-overview)
+4. [Database Configuration](#database-configuration)
+5. [Security (Keycloak)](#security-keycloak)
+6. [Monitoring and Tracing](#monitoring-and-tracing)
+7. [Running with Docker](#running-with-docker)
+8. [Troubleshooting](#troubleshooting)
 
-- **Spring Boot 3**: Framework for building microservices.
-- **Prometheus**: Monitoring and alerting toolkit.
-- **Grafana**: Data visualization and monitoring tool.
-- **Apache Kafka**: Distributed event streaming platform.
-- **Keycloak**: Open-source identity and access management.
-- **MySQL**: Relational database management system.
-- **PostgreSQL**: Advanced relational database management system.
-- **Docker**: Container platform for running applications.
+---
 
-## Getting Started ⚡
+## ![Architecture](https://img.shields.io/badge/Architecture-Overview-blue?logo=architecture) Architecture
 
-## Architecture 🏗️
+This project consists of multiple microservices that interact with each other through REST APIs and Kafka for asynchronous messaging. Each service is self-contained and uses Docker to manage its dependencies.
 
-The architecture of the application is designed to be modular and scalable. It includes multiple microservices, each responsible for a specific domain or functionality. Below is a high-level overview of the architecture:
+### Core Components:
+- ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) **Eureka Server**: Service registry to manage service discovery.
+- ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) **Config Server**: Centralized configuration management.
+- **Microservices**: Several services that interact with databases (MySQL/Postgres) and communicate using REST and Kafka.
+- ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) **Kafka**: Handles messaging between services.
+- ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) & ![Grafana](https://img.shields.io/badge/Grafana-Monitoring-orange?logo=grafana) **Prometheus & Grafana**: Monitors metrics and visualizes data.
+- ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) **Zipkin**: Tracks distributed transactions.
+- ![Keycloak](https://img.shields.io/badge/Keycloak-Identity%20%26%20Access-blue?logo=keycloak) **Keycloak**: Manages authentication and authorization.
 
-- **Microservices**:
-    - Each microservice is built using Spring Boot and communicates with other services through **Apache Kafka**.
-    - Services are designed to be independently deployable and scalable.
+---
 
-- **Databases**:
-    - **MySQL** is used for transactional data.
-    - **PostgreSQL** is used for analytical data and reporting.
-
-- **Monitoring**:
-    - **Prometheus** collects metrics from the microservices.
-    - **Grafana** visualizes these metrics, providing insights into system performance.
-
-- **Authentication**:
-    - **Keycloak** handles user authentication and authorization for the microservices.
-
-- **Containerization**:
-    - All components are containerized using **Docker**, allowing for consistent deployment across environments.
-
-## Services 📦
-
-- **Service A**: Description of service A.
-- **Service B**: Description of service B.
-- **Service C**: Description of service C.
-
-## Running the Project 🚀
-
-### Build and Start Containers
-
-You can run the entire stack using Docker Compose. Make sure you are in the root directory of the project and run:
-
-```bash
-docker-compose up --build
-```
-This command builds the images and starts the containers.
-
-## Accessing Services 🌐
-
-- **Service A**: [http://localhost:8081](http://localhost:8081) 🔗
-- **Service B**: [http://localhost:8082](http://localhost:8082) 🔗
-- **Service C**: [http://localhost:8083](http://localhost:8083) 🔗
-- **Grafana**: [http://localhost:3000](http://localhost:3000) (Default login: `admin/admin`) 📈
-- **Keycloak**: [http://localhost:8084](http://localhost:8084) (Default login: `admin/admin`) 🛡️
-
-## Monitoring 📊
-
-Prometheus is configured to scrape metrics from the microservices. Grafana can be used to visualize these metrics.
-
-1. Open Grafana at `http://localhost:3000`.
-2. Add a new data source for Prometheus (URL: `http://prometheus:9090`).
-3. Create dashboards to visualize metrics from your microservices.
-
-## Authentication 🔒
-
-Keycloak is used for authentication and authorization. Follow these steps to set up Keycloak:
-
-1. Access Keycloak at `http://localhost:8084`.
-2. Create a new realm, client, and users as needed.
-3. Configure your microservices to use Keycloak for authentication.
-
-## Database Setup 🗄️
-
-- **MySQL**: Configured to run on `localhost:3306`.
-- **PostgreSQL**: Configured to run on `localhost:5432`.
-
-Ensure the databases are initialized with the necessary schemas and data. You can find the SQL scripts in the `sql` directory.
-
+## ![Setup](https://img.shields.io/badge/Setup-Instructions-yellow?logo=gear) Setup Instructions
 
 ### Prerequisites
+- ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker) Docker and Docker Compose installed.
+- ![Java 17](https://img.shields.io/badge/Java-17-orange?logo=java) Java 17 (required for Spring Boot 3).
+- ![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?logo=apachemaven) Maven (or Gradle if your project uses it).
 
-- Docker and Docker Compose installed on your machine.
+### Steps to Run the Project
 
-### Clone the Repository
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-repo/microservices-springboot3.git
+    cd microservices-springboot3
+    ```
 
-```bash
-git clone https://github.com/AbdelrahmanShokair/microservices-springboot.git
+2. **Build the services**:
+    ```bash
+    mvn clean install
+    ```
+
+3. **Run the project using Docker Compose**:
+    ```bash
+    docker-compose up --build
+    ```
+
+    This will start all the microservices, databases (MySQL, PostgreSQL), Eureka, Prometheus, Grafana, Kafka, Zipkin, and Keycloak.
+
+---
+
+## ![Services](https://img.shields.io/badge/Services-Overview-lightgreen?logo=serverfault) Services Overview
+
+| Service         | Port  | Description                             |
+|-----------------|-------|-----------------------------------------|
+| ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) Eureka Server   | 8761  | Service discovery server.               |
+| ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) Config Server   | 8888  | Centralized configuration.              |
+| ![Microservice](https://img.shields.io/badge/Microservice-1-blue) Microservice 1  | 8081  | Example microservice with MySQL.        |
+| ![Microservice](https://img.shields.io/badge/Microservice-2-blue) Microservice 2  | 8082  | Example microservice with PostgreSQL.   |
+| ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) Kafka           | 9092  | Messaging platform.                     |
+| ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) Zipkin          | 9411  | Distributed tracing tool.               |
+| ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) Prometheus      | 9090  | Metrics collection tool.                |
+| ![Grafana](https://img.shields.io/badge/Grafana-Monitoring-orange?logo=grafana) Grafana         | 3000  | Visualization and monitoring dashboard. |
+| ![Keycloak](https://img.shields.io/badge/Keycloak-Identity%20%26%20Access-blue?logo=keycloak) Keycloak        | 8080  | Identity and Access Management.         |
+
+---
+
+## ![Database](https://img.shields.io/badge/Database-Configuration-yellowgreen?logo=database) Database Configuration
+
+### MySQL
+- Microservice 1 connects to MySQL.
+- Connection URL: `jdbc:mysql://mysql:3306/db_microservice1`
+- Configure username and password in `application.properties` or use the centralized config server.
+
+### PostgreSQL
+- Microservice 2 connects to PostgreSQL.
+- Connection URL: `jdbc:postgresql://postgres:5432/db_microservice2`
+- Configure username and password similarly.
+
+---
+
+## ![Security](https://img.shields.io/badge/Security-Keycloak-blue?logo=keycloak) Security (Keycloak)
+
+Keycloak is used to secure microservices via OAuth2 and OpenID Connect. 
+
+- Access the Keycloak admin console at `http://localhost:8080`.
+- Default admin credentials: `admin/admin`.
+- Create realms, clients, and roles to secure your microservices.
+
+### Keycloak Configuration in Microservices
+
+In each microservice's `application.properties`, configure the Keycloak server:
+```properties
+keycloak.auth-server-url=http://localhost:8080/auth
+keycloak.realm=your-realm
+keycloak.resource=your-client-id
+keycloak.credentials.secret=your-client-secret
 ```
+## Monitoring and Tracing
+
+### Prometheus
+- Access Prometheus at `http://localhost:9090`.
+- Prometheus scrapes metrics from the microservices and provides a backend for time-series data.
+
+### Grafana
+- Access Grafana at `http://localhost:3000`.
+- Add Prometheus as a data source and import pre-built dashboards to visualize metrics.
+
+### Zipkin
+- Access Zipkin at `http://localhost:9411`.
+- Trace requests between microservices to diagnose latency issues or trace errors.
+
+---
+
+## Running with Docker
+
+This project uses Docker Compose to simplify running all services.
+
+### Docker Compose Commands:
+
+- **Build and Start Services**:
+    ```bash
+    docker-compose up --build
+    ```
+
+- **Stop Services**:
+    ```bash
+    docker-compose down
+    ```
+
+- **Rebuild a Specific Service**:
+    ```bash
+    docker-compose up --build <service-name>
+    ```
+
