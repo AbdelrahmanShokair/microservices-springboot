@@ -1,9 +1,11 @@
-# Spring Boot Microservices Project
+# ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Microservices-brightgreen?logo=springboot) Spring Boot Microservices Project
 
 This project demonstrates a microservices architecture using Spring Boot 3, incorporating various tools and frameworks for monitoring, messaging, security, service discovery, tracing, and persistence. The setup includes Docker to containerize the entire system.
 
 ## Key Technologies
+
 - ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3-green?logo=springboot) **Spring Boot 3**: Java framework for building production-ready applications.
+- ![API Gateway](https://img.shields.io/badge/API%20Gateway-Routing-0088CC?logo=apigateway) **API Gateway**: Centralized entry point for managing and routing requests to different microservices.
 - ![Grafana](https://img.shields.io/badge/Grafana-Monitoring-orange?logo=grafana) **Grafana**: Visualization and monitoring tool.
 - ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) **Prometheus**: Monitoring and alerting toolkit.
 - ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) **Kafka**: Distributed messaging platform.
@@ -17,27 +19,15 @@ This project demonstrates a microservices architecture using Spring Boot 3, inco
 
 ---
 
-## Table of Contents
-
-1. [Architecture](#architecture)
-2. [Setup Instructions](#setup-instructions)
-3. [Services Overview](#services-overview)
-4. [Database Configuration](#database-configuration)
-5. [Security (Keycloak)](#security-keycloak)
-6. [Monitoring and Tracing](#monitoring-and-tracing)
-7. [Running with Docker](#running-with-docker)
-8. [Troubleshooting](#troubleshooting)
-
----
-
 ## ![Architecture](https://img.shields.io/badge/Architecture-Overview-blue?logo=architecture) Architecture
 
-This project consists of multiple microservices that interact with each other through REST APIs and Kafka for asynchronous messaging. Each service is self-contained and uses Docker to manage its dependencies.
+This project consists of multiple microservices that interact with each other through REST APIs, API Gateway, and Kafka for asynchronous messaging. Each service is self-contained and uses Docker to manage its dependencies.
 
 ### Core Components:
 - ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) **Eureka Server**: Service registry to manage service discovery.
 - ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) **Config Server**: Centralized configuration management.
-- **Microservices**: Several services that interact with databases (MySQL/Postgres) and communicate using REST and Kafka.
+- ![API Gateway](https://img.shields.io/badge/API%20Gateway-Routing-0088CC?logo=apigateway) **API Gateway**: Centralized routing and access control to microservices.
+- **Microservices**: Several services that interact with databases (MySQL/Postgres/MongoDB) and communicate using REST and Kafka.
 - ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) **Kafka**: Handles messaging between services.
 - ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) & ![Grafana](https://img.shields.io/badge/Grafana-Monitoring-orange?logo=grafana) **Prometheus & Grafana**: Monitors metrics and visualizes data.
 - ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) **Zipkin**: Tracks distributed transactions.
@@ -48,9 +38,10 @@ This project consists of multiple microservices that interact with each other th
 ## ![Setup](https://img.shields.io/badge/Setup-Instructions-yellow?logo=gear) Setup Instructions
 
 ### Prerequisites
-- ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker) Docker and Docker Compose installed.
-- ![Java 17](https://img.shields.io/badge/Java-17-orange?logo=java) Java 17 (required for Spring Boot 3).
-- ![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?logo=apachemaven) Maven (or Gradle if your project uses it).
+
+- ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker) **Docker** and **Docker Compose** installed.
+- ![Java 17](https://img.shields.io/badge/Java-17-orange?logo=java) **Java 17** (required for Spring Boot 3).
+- ![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?logo=apachemaven) **Maven** (or Gradle if your project uses it).
 
 ### Steps to Run the Project
 
@@ -70,7 +61,7 @@ This project consists of multiple microservices that interact with each other th
     docker-compose up --build
     ```
 
-    This will start all the microservices, databases (MySQL, PostgreSQL), Eureka, Prometheus, Grafana, Kafka, Zipkin, and Keycloak.
+    This will start all the microservices, databases (MySQL, PostgreSQL, MongoDB), Eureka, Prometheus, Grafana, Kafka, Zipkin, Keycloak, and the API Gateway.
 
 ---
 
@@ -80,8 +71,10 @@ This project consists of multiple microservices that interact with each other th
 |-----------------|-------|-----------------------------------------|
 | ![Eureka](https://img.shields.io/badge/Eureka-Discovery%20Service-9cf?logo=spring) Eureka Server   | 8761  | Service discovery server.               |
 | ![Spring Config](https://img.shields.io/badge/Spring%20Config-Configuration-6DB33F?logo=spring) Config Server   | 8888  | Centralized configuration.              |
+| ![API Gateway](https://img.shields.io/badge/API%20Gateway-Routing-0088CC?logo=apigateway) API Gateway   | 8080  | Centralized routing and access control. |
 | ![Microservice](https://img.shields.io/badge/Microservice-1-blue) Microservice 1  | 8081  | Example microservice with MySQL.        |
 | ![Microservice](https://img.shields.io/badge/Microservice-2-blue) Microservice 2  | 8082  | Example microservice with PostgreSQL.   |
+| ![Microservice](https://img.shields.io/badge/Microservice-3-blue) Microservice 3  | 8083  | Example microservice with MongoDB.      |
 | ![Kafka](https://img.shields.io/badge/Apache%20Kafka-Messaging-000?logo=apachekafka) Kafka           | 9092  | Messaging platform.                     |
 | ![Zipkin](https://img.shields.io/badge/Zipkin-Tracing-blue?logo=apache) Zipkin          | 9411  | Distributed tracing tool.               |
 | ![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-orange?logo=prometheus) Prometheus      | 9090  | Metrics collection tool.                |
@@ -92,22 +85,22 @@ This project consists of multiple microservices that interact with each other th
 
 ## ![Database](https://img.shields.io/badge/Database-Configuration-yellowgreen?logo=database) Database Configuration
 
-### MySQL(https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
+### ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
 - Microservice 1 connects to MySQL.
 - Connection URL: `jdbc:mysql://mysql:3306/db_microservice1`
 - Configure username and password in `application.properties` or use the centralized config server.
 
-### PostgreSQL(https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql)
+### ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql)
 - Microservice 2 connects to PostgreSQL.
 - Connection URL: `jdbc:postgresql://postgres:5432/db_microservice2`
 - Configure username and password similarly.
 
-### ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb) MongoDB
+### ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL%20Database-green?logo=mongodb)
 - Microservice 3 connects to MongoDB.
 - Connection URL: `mongodb://mongo:27017/db_microservice3`
 - MongoDB is used for storing NoSQL data and documents.
 - Configure username and password in the `application.properties` file or centralized configuration.
-  
+
 ---
 
 ## ![Security](https://img.shields.io/badge/Security-Keycloak-blue?logo=keycloak) Security (Keycloak)
