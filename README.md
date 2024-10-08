@@ -86,9 +86,7 @@ This project consists of multiple microservices that interact with each other th
 ## ![Database](https://img.shields.io/badge/Database-Configuration-yellowgreen?logo=database) Database Configuration
 
 ### ![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
-- Microservice 1 connects to MySQL.
-- Connection URL: `jdbc:mysql://mysql:3306/db_microservice1`
-- Configure username and password in `application.properties` or use the centralized config server.
+- Keycloak connects to MySQL.
 
 ### ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql)
 - Microservice 2 connects to PostgreSQL.
@@ -116,7 +114,8 @@ Keycloak is used to secure microservices via OAuth2 and OpenID Connect.
 In each microservice's `application.properties`, configure the Keycloak server:
 ```properties
 keycloak.auth-server-url=http://localhost:8080/auth
-keycloak.realm=your-realm
+spring.security.oauth2.resourceserver.jwt.issuer-uri=http://keycloak:8080/realms/spring-boot-microservices-realm
+keycloak.realm=spring-boot-microservices-realm
 keycloak.resource=your-client-id
 keycloak.credentials.secret=your-client-secret
 ```
@@ -144,16 +143,16 @@ This project uses Docker Compose to simplify running all services.
 
 - **Build and Start Services**:
     ```bash
-    docker-compose up --build
+    docker compose up -d
     ```
 
 - **Stop Services**:
     ```bash
-    docker-compose down
+    docker compose down
     ```
 
 - **Rebuild a Specific Service**:
     ```bash
-    docker-compose up --build <service-name>
+    docker compose up --build <service-name>
     ```
 
