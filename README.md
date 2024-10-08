@@ -48,7 +48,7 @@ This project consists of multiple microservices that interact with each other th
 1. **Clone the repository**:
     ```bash
     git clone https://github.com/AbdelrahmanShokair/microservices-springboot.git
-    cd microservices-springboot3
+    cd microservices-springboot
     ```
 
 2. **Build the services**:
